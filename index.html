@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>பான் கார்டு ரீசைஸ் கருவி</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--pri:#4a6fe0;--txt:#e8eaff;--mut:#b7bcf0}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;font-family:'Noto Sans Tamil',system-ui,sans-serif;color:var(--txt);background:radial-gradient(circle at 20% 0%,#3a0d55 0,#12031e 45%,#050109 100%) fixed}
+header{display:flex;align-items:center;gap:12px;padding:12px 18px}
+header img{height:52px;background:#fff;border-radius:10px;padding:3px}
+header h1{font-size:20px;margin:0}
+header p{margin:2px 0 0;font-size:12.5px;color:var(--mut)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;max-width:1240px;margin:8px auto 24px;padding:0 16px}
+.namebar{max-width:420px;margin:4px auto 10px;padding:0 16px}
+.namebar label{margin-top:0}
+.card{border:3px solid #fff;border-radius:22px;padding:22px 24px;background:rgba(10,2,22,.55)}
+.card h2{margin:0 0 12px;font-size:17px;color:#7d9bff}
+label{display:block;font-weight:600;font-size:13.5px;margin:12px 0 4px;color:var(--mut)}
+input,select{width:100%;padding:10px 12px;border:1px solid #c9c9d6;border-radius:8px;font:inherit;font-size:15px;background:#fff;color:#222}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tag{font-weight:400;font-size:12px;color:#8f95d8}
+button{font:inherit;font-size:14px;padding:10px 22px;border:0;border-radius:6px;background:var(--pri);color:#fff;cursor:pointer}
+button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #ffd54a;outline-offset:2px}
+.act{text-align:center;margin-top:18px}
+.res{margin-top:16px;text-align:center;display:none}
+.res img{max-width:100%;max-height:230px;background:#fff;border:1px solid #888;border-radius:6px}
+.meta{font-size:13px;margin:8px 0;color:#fff}
+.meta.warn{color:#ffb4a8}
+a.dl{display:inline-block;background:#1fa463;color:#fff;text-decoration:none;padding:10px 22px;border-radius:6px;font-size:14px}
+.note{max-width:1240px;margin:0 auto 24px;padding:0 20px;font-size:12.5px;color:var(--mut)}
+</style>
+</head>
+<body>
+<header><img src="data:image/jpeg;base64,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" alt="Dhass"><div><h1>பான் கார்டு ரீசைஸ் கருவி</h1><p>தாஸ் பொது சேவை மையம் — புகைப்படம் &amp; கையொப்பம்</p></div></header>
+<div class="namebar"><label>பெயர் (பதிவிறக்கும் கோப்பின் பெயர்) :</label><input type="text" id="nm" placeholder="எ.கா: ராஜா"></div>
+<div class="grid">
+ <div class="card" id="c_p">
+  <h2>Photo Resize</h2>
+  <label>Upload Photo :</label><input type="file" id="pF" accept="image/*">
+  <div class="two"><div><label>Required Width in Pixels :</label><input type="number" id="pW" value="213"></div><div><label>Required Height in Pixels :</label><input type="number" id="pH" value="213"></div></div>
+  <div class="two"><div><label>Required DPI Value :</label><input type="number" id="pD" value="300"></div><div><label>அதிகபட்ச அளவு (KB) <span class="tag">0 = வரம்பு இல்லை</span></label><input type="number" id="pK" value="50"></div></div>
+  <label>பொருத்தும் முறை :</label>
+  <select id="pM"><option value="crop">நடுவில் வெட்டு (Crop)</option><option value="fit">முழுப் படம் + வெள்ளை இடம் (Fit)</option><option value="stretch">இழுத்து நிரப்பு (Stretch)</option></select>
+  <div class="act"><button onclick="make('p')">Get Photo</button></div>
+  <div class="res" id="pR"><img id="pI" alt="Photo result"><div class="meta" id="pT"></div><a class="dl" id="pA">⬇ பதிவிறக்கு</a></div>
+ </div>
+ <div class="card" id="c_s">
+  <h2>Signature Resize</h2>
+  <label>Upload Signature :</label><input type="file" id="sF" accept="image/*">
+  <div class="two"><div><label>Required Width in Pixels :</label><input type="number" id="sW" value="400"></div><div><label>Required Height in Pixels :</label><input type="number" id="sH" value="200"></div></div>
+  <div class="two"><div><label>Required DPI Value :</label><input type="number" id="sD" value="600"></div><div><label>அதிகபட்ச அளவு (KB) <span class="tag">0 = வரம்பு இல்லை</span></label><input type="number" id="sK" value="50"></div></div>
+  <label>பொருத்தும் முறை :</label>
+  <select id="sM"><option value="fit">முழுப் படம் + வெள்ளை இடம் (Fit)</option><option value="crop">நடுவில் வெட்டு (Crop)</option><option value="stretch">இழுத்து நிரப்பு (Stretch)</option></select>
+  <div class="act"><button onclick="make('s')">Get Signature</button></div>
+  <div class="res" id="sR"><img id="sI" alt="Signature result"><div class="meta" id="sT"></div><a class="dl" id="sA">⬇ பதிவிறக்கு</a></div>
+ </div>
+ <div class="card" id="c_e">
+  <h2>1. இ-சேவை (e-Sevai) Photo</h2>
+  <label>Upload Photo :</label><input type="file" id="eF" accept="image/*">
+  <div class="two"><div><label>Required Width in Pixels :</label><input type="number" id="eW" value="250"></div><div><label>Required Height in Pixels :</label><input type="number" id="eH" value="250"></div></div>
+  <div class="two"><div><label>Required DPI Value :</label><input type="number" id="eD" value="300"></div><div><label>அதிகபட்ச அளவு (KB) <span class="tag">0 = வரம்பு இல்லை</span></label><input type="number" id="eK" value="50"></div></div>
+  <label>பொருத்தும் முறை :</label>
+  <select id="eM"><option value="crop">நடுவில் வெட்டு (Crop)</option><option value="fit">முழுப் படம் + வெள்ளை இடம் (Fit)</option><option value="stretch">இழுத்து நிரப்பு (Stretch)</option></select>
+  <div class="act"><button onclick="make('e')">Get Photo</button></div>
+  <div class="res" id="eR"><img id="eI" alt="e-Sevai photo result"><div class="meta" id="eT"></div><a class="dl" id="eA">⬇ பதிவிறக்கு</a></div>
+ </div>
+</div>
+<div class="note">படம் JPG ஆக, குறிப்பிட்ட DPI உடன் சேமிக்கப்படும். அதிகபட்ச KB-க்குள் வரும்படி தரம் தானாகக் குறைக்கப்படும். அளவு, KB வரம்பு ஆகியவற்றை அந்தந்த இணையதளத்தில் ஒருமுறை சரிபார்த்துக்கொள்ளவும்.</div>
+<script>
+const $=id=>document.getElementById(id);
+function setDpi(buf,dpi){
+ const u=new Uint8Array(buf);
+ if(u[0]!==0xFF||u[1]!==0xD8)return buf;
+ const hi=(dpi>>8)&255,lo=dpi&255;
+ if(u[2]===0xFF&&u[3]===0xE0&&u[6]===0x4A&&u[7]===0x46){u[13]=1;u[14]=hi;u[15]=lo;u[16]=hi;u[17]=lo;return u.buffer}
+ const app=new Uint8Array([0xFF,0xE0,0,16,0x4A,0x46,0x49,0x46,0,1,1,1,hi,lo,hi,lo,0,0]);
+ const out=new Uint8Array(u.length+app.length);out.set(u.subarray(0,2));out.set(app,2);out.set(u.subarray(2),2+app.length);return out.buffer;
+}
+function scaled(im,sx,sy,sw,sh,dw,dh){
+ let c=document.createElement('canvas');c.width=sw;c.height=sh;c.getContext('2d').drawImage(im,sx,sy,sw,sh,0,0,sw,sh);
+ while(c.width/2>=dw&&c.height/2>=dh){
+  const n=document.createElement('canvas');n.width=Math.floor(c.width/2);n.height=Math.floor(c.height/2);
+  const g=n.getContext('2d');g.imageSmoothingQuality='high';g.drawImage(c,0,0,n.width,n.height);c=n;
+ }
+ return c;
+}
+const SUF={p:'போட்டோ',s:'கையெழுத்து',e:'இசேவை_போட்டோ'};
+function fname(k,W,H){
+ const n=$('nm').value.replace(/[\\\/:*?"<>|]+/g,'').trim();
+ return (n?n+'_'+SUF[k]:SUF[k]+'_'+W+'x'+H)+'.jpg';
+}
+function make(k){
+ const f=$(k+'F').files[0];
+ if(!f){alert('முதலில் படத்தைத் தேர்வு செய்யவும்');return}
+ const W=Math.round(+$(k+'W').value),H=Math.round(+$(k+'H').value),D=Math.round(+$(k+'D').value)||72,max=(+$(k+'K').value||0)*1024,mode=$(k+'M').value;
+ if(!(W>0&&H>0)){alert('அகலம், உயரம் சரியாக உள்ளிடவும்');return}
+ const url=URL.createObjectURL(f),im=new Image();
+ im.onerror=()=>alert('இந்தப் படத்தைத் திறக்க முடியவில்லை');
+ im.onload=async()=>{
+  const sw=im.naturalWidth,sh=im.naturalHeight;
+  const cv=document.createElement('canvas');cv.width=W;cv.height=H;
+  const x=cv.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,W,H);x.imageSmoothingQuality='high';
+  let s=[0,0,sw,sh],d=[0,0,W,H];
+  if(mode==='crop'){const r=Math.max(W/sw,H/sh),cw=W/r,ch=H/r;s=[(sw-cw)/2,(sh-ch)/2,cw,ch]}
+  else if(mode==='fit'){const r=Math.min(W/sw,H/sh),dw=Math.round(sw*r),dh=Math.round(sh*r);d=[Math.round((W-dw)/2),Math.round((H-dh)/2),dw,dh]}
+  const sc=scaled(im,Math.round(s[0]),Math.round(s[1]),Math.max(1,Math.round(s[2])),Math.max(1,Math.round(s[3])),d[2],d[3]);
+  x.drawImage(sc,d[0],d[1],d[2],d[3]);
+  URL.revokeObjectURL(url);
+  const blob=q=>new Promise(r=>cv.toBlob(r,'image/jpeg',q));
+  let b=await blob(.95);
+  if(max&&b.size>max){
+   let lo=.2,hi=.95,best=null;
+   for(let i=0;i<8;i++){const m=(lo+hi)/2,t=await blob(m);if(t.size>max)hi=m;else{best=t;lo=m}}
+   b=best||await blob(.2);
+  }
+  const out=new Blob([setDpi(await b.arrayBuffer(),D)],{type:'image/jpeg'});
+  const u2=URL.createObjectURL(out);
+  $(k+'I').src=u2;
+  const a=$(k+'A');a.href=u2;a.download=fname(k,W,H);a.onclick=()=>{a.download=fname(k,W,H)};
+  const kb=(out.size/1024).toFixed(1),over=max&&out.size>max;
+  const t=$(k+'T');t.textContent=W+' × '+H+' px · '+D+' DPI · '+kb+' KB'+(over?' — அதிகபட்ச அளவை விட அதிகம்!':'');
+  t.className='meta'+(over?' warn':'');
+  $(k+'R').style.display='block';
+ };
+ im.src=url;
+}
+</script>
+</body>
+</html>
