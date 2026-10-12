@@ -13,7 +13,17 @@ header{display:flex;align-items:center;gap:12px;padding:12px 18px}
 header img{height:52px;background:#fff;border-radius:10px;padding:3px}
 header h1{font-size:20px;margin:0}
 header p{margin:2px 0 0;font-size:12.5px;color:var(--mut)}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;max-width:1240px;margin:8px auto 24px;padding:0 16px}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;max-width:1500px;margin:8px auto 24px;padding:0 12px}
+@media(max-width:1100px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.grid{grid-template-columns:1fr}}
+.grid .card{padding:14px 12px;border-radius:18px}
+.grid .card h2{font-size:15px}
+.grid label{font-size:12.5px}
+.grid input{padding:8px 8px;font-size:14px}
+.grid .two{gap:6px}
+.grid .tag{display:block;margin-top:2px}
+#c_p,#c_s{border-color:#4a8bff}#c_p h2,#c_s h2{color:#7db0ff}#c_p button,#c_s button{background:#2f6fe8}
+#c_e,#c_g{border-color:#2fc46b}#c_e h2,#c_g h2{color:#6ee79a}#c_e button,#c_g button{background:#1fa463}
 .namebar{max-width:420px;margin:4px auto 10px;padding:0 16px}
 .namebar label{margin-top:0}
 .card{border:3px solid #fff;border-radius:22px;padding:22px 24px;background:rgba(10,2,22,.55)}
