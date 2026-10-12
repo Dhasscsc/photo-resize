@@ -38,22 +38,18 @@ a.dl{display:inline-block;background:#1fa463;color:#fff;text-decoration:none;pad
 <div class="namebar"><label>பெயர் (பதிவிறக்கும் கோப்பின் பெயர்) :</label><input type="text" id="nm" placeholder="எ.கா: ராஜா"></div>
 <div class="grid">
  <div class="card" id="c_p">
-  <h2>Photo Resize</h2>
+  <h2>PAN Photo Resize</h2>
   <label>Upload Photo :</label><input type="file" id="pF" accept="image/*">
   <div class="two"><div><label>Required Width in Pixels :</label><input type="number" id="pW" value="213"></div><div><label>Required Height in Pixels :</label><input type="number" id="pH" value="213"></div></div>
   <div class="two"><div><label>Required DPI Value :</label><input type="number" id="pD" value="300"></div><div><label>அதிகபட்ச அளவு (KB) <span class="tag">0 = வரம்பு இல்லை</span></label><input type="number" id="pK" value="50"></div></div>
-  <label>பொருத்தும் முறை :</label>
-  <select id="pM"><option value="crop">நடுவில் வெட்டு (Crop)</option><option value="fit">முழுப் படம் + வெள்ளை இடம் (Fit)</option><option value="stretch">இழுத்து நிரப்பு (Stretch)</option></select>
   <div class="act"><button onclick="make('p')">Get Photo</button></div>
   <div class="res" id="pR"><img id="pI" alt="Photo result"><div class="meta" id="pT"></div><a class="dl" id="pA">⬇ பதிவிறக்கு</a></div>
  </div>
  <div class="card" id="c_s">
-  <h2>Signature Resize</h2>
+  <h2>PAN Signature Resize <span class="tag">கருப்பு மை · வெள்ளைப் பின்னணி</span></h2>
   <label>Upload Signature :</label><input type="file" id="sF" accept="image/*">
   <div class="two"><div><label>Required Width in Pixels :</label><input type="number" id="sW" value="400"></div><div><label>Required Height in Pixels :</label><input type="number" id="sH" value="200"></div></div>
   <div class="two"><div><label>Required DPI Value :</label><input type="number" id="sD" value="600"></div><div><label>அதிகபட்ச அளவு (KB) <span class="tag">0 = வரம்பு இல்லை</span></label><input type="number" id="sK" value="50"></div></div>
-  <label>பொருத்தும் முறை :</label>
-  <select id="sM"><option value="fit">முழுப் படம் + வெள்ளை இடம் (Fit)</option><option value="crop">நடுவில் வெட்டு (Crop)</option><option value="stretch">இழுத்து நிரப்பு (Stretch)</option></select>
   <div class="act"><button onclick="make('s')">Get Signature</button></div>
   <div class="res" id="sR"><img id="sI" alt="Signature result"><div class="meta" id="sT"></div><a class="dl" id="sA">⬇ பதிவிறக்கு</a></div>
  </div>
@@ -62,10 +58,17 @@ a.dl{display:inline-block;background:#1fa463;color:#fff;text-decoration:none;pad
   <label>Upload Photo :</label><input type="file" id="eF" accept="image/*">
   <div class="two"><div><label>Required Width in Pixels :</label><input type="number" id="eW" value="250"></div><div><label>Required Height in Pixels :</label><input type="number" id="eH" value="250"></div></div>
   <div class="two"><div><label>Required DPI Value :</label><input type="number" id="eD" value="300"></div><div><label>அதிகபட்ச அளவு (KB) <span class="tag">0 = வரம்பு இல்லை</span></label><input type="number" id="eK" value="50"></div></div>
-  <label>பொருத்தும் முறை :</label>
-  <select id="eM"><option value="crop">நடுவில் வெட்டு (Crop)</option><option value="fit">முழுப் படம் + வெள்ளை இடம் (Fit)</option><option value="stretch">இழுத்து நிரப்பு (Stretch)</option></select>
   <div class="act"><button onclick="make('e')">Get Photo</button></div>
   <div class="res" id="eR"><img id="eI" alt="e-Sevai photo result"><div class="meta" id="eT"></div><a class="dl" id="eA">⬇ பதிவிறக்கு</a></div>
+ </div>
+
+ <div class="card" id="c_g">
+  <h2>2. இ-சேவை (e-Sevai) Signature <span class="tag">இங்க் நீலம் · வெள்ளைப் பின்னணி</span></h2>
+  <label>Upload Signature :</label><input type="file" id="gF" accept="image/*">
+  <div class="two"><div><label>Required Width in Pixels :</label><input type="number" id="gW" value="250"></div><div><label>Required Height in Pixels :</label><input type="number" id="gH" value="100"></div></div>
+  <div class="two"><div><label>Required DPI Value :</label><input type="number" id="gD" value="300"></div><div><label>அதிகபட்ச அளவு (KB) <span class="tag">0 = வரம்பு இல்லை</span></label><input type="number" id="gK" value="50"></div></div>
+  <div class="act"><button onclick="make('g')">Get Signature</button></div>
+  <div class="res" id="gR"><img id="gI" alt="e-Sevai signature result"><div class="meta" id="gT"></div><a class="dl" id="gA">⬇ பதிவிறக்கு</a></div>
  </div>
 </div>
 <div class="note">படம் JPG ஆக, குறிப்பிட்ட DPI உடன் சேமிக்கப்படும். அதிகபட்ச KB-க்குள் வரும்படி தரம் தானாகக் குறைக்கப்படும். அளவு, KB வரம்பு ஆகியவற்றை அந்தந்த இணையதளத்தில் ஒருமுறை சரிபார்த்துக்கொள்ளவும்.</div>
@@ -87,7 +90,20 @@ function scaled(im,sx,sy,sw,sh,dw,dh){
  }
  return c;
 }
-const SUF={p:'போட்டோ',s:'கையெழுத்து',e:'இசேவை_போட்டோ'};
+const SUF={p:'போட்டோ',s:'கையெழுத்து',e:'இசேவை_போட்டோ',g:'இசேவை_கையெழுத்து'};
+const INK={s:[0,0,0],g:[10,40,170]};
+function inkify(x,W,H,rgb){
+ const id=x.getImageData(0,0,W,H),d=id.data,n=W*H,L=new Uint8Array(n),h=new Uint32Array(256);
+ for(let i=0;i<n;i++){const v=Math.round(.299*d[i*4]+.587*d[i*4+1]+.114*d[i*4+2]);L[i]=v;h[v]++}
+ const pct=p=>{let c=0,t=n*p;for(let v=0;v<256;v++){c+=h[v];if(c>=t)return v}return 255};
+ let lo=pct(.01),hi=Math.max(pct(.6),lo+40)*.85;if(hi<=lo)hi=lo+1;
+ for(let i=0;i<n;i++){
+  let a=1-(L[i]-lo)/(hi-lo);a=a<0?0:a>1?1:a;a=a*a*(3-2*a);
+  d[i*4]=255+(rgb[0]-255)*a;d[i*4+1]=255+(rgb[1]-255)*a;d[i*4+2]=255+(rgb[2]-255)*a;d[i*4+3]=255;
+ }
+ x.putImageData(id,0,0);
+}
+
 function fname(k,W,H){
  const n=$('nm').value.replace(/[\\\/:*?"<>|]+/g,'').trim();
  return (n?n+'_'+SUF[k]:SUF[k]+'_'+W+'x'+H)+'.jpg';
@@ -95,7 +111,7 @@ function fname(k,W,H){
 function make(k){
  const f=$(k+'F').files[0];
  if(!f){alert('முதலில் படத்தைத் தேர்வு செய்யவும்');return}
- const W=Math.round(+$(k+'W').value),H=Math.round(+$(k+'H').value),D=Math.round(+$(k+'D').value)||72,max=(+$(k+'K').value||0)*1024,mode=$(k+'M').value;
+ const W=Math.round(+$(k+'W').value),H=Math.round(+$(k+'H').value),D=Math.round(+$(k+'D').value)||72,max=(+$(k+'K').value||0)*1024;
  if(!(W>0&&H>0)){alert('அகலம், உயரம் சரியாக உள்ளிடவும்');return}
  const url=URL.createObjectURL(f),im=new Image();
  im.onerror=()=>alert('இந்தப் படத்தைத் திறக்க முடியவில்லை');
@@ -103,11 +119,10 @@ function make(k){
   const sw=im.naturalWidth,sh=im.naturalHeight;
   const cv=document.createElement('canvas');cv.width=W;cv.height=H;
   const x=cv.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,W,H);x.imageSmoothingQuality='high';
-  let s=[0,0,sw,sh],d=[0,0,W,H];
-  if(mode==='crop'){const r=Math.max(W/sw,H/sh),cw=W/r,ch=H/r;s=[(sw-cw)/2,(sh-ch)/2,cw,ch]}
-  else if(mode==='fit'){const r=Math.min(W/sw,H/sh),dw=Math.round(sw*r),dh=Math.round(sh*r);d=[Math.round((W-dw)/2),Math.round((H-dh)/2),dw,dh]}
+  const s=[0,0,sw,sh],d=[0,0,W,H];
   const sc=scaled(im,Math.round(s[0]),Math.round(s[1]),Math.max(1,Math.round(s[2])),Math.max(1,Math.round(s[3])),d[2],d[3]);
   x.drawImage(sc,d[0],d[1],d[2],d[3]);
+  if(INK[k])inkify(x,W,H,INK[k]);
   URL.revokeObjectURL(url);
   const blob=q=>new Promise(r=>cv.toBlob(r,'image/jpeg',q));
   let b=await blob(.95);
